@@ -26,4 +26,5 @@
 | GET            | /fundraiser/new      | Show form for new fundraiser
 | GET            | /fundraiser/show     | Show fund
 | POST           | /fundraiser/new      | Create a new fund
-|                |
+| PUT            | /fundraiser/:id      | Find and update a fund
+| DELETE         | /fundraiser/:id      | Find and delete a fund

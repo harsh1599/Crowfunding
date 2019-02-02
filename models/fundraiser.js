@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const mongoosePaginate = require("mongoose-paginate");
 
-const FundRaiserSchema = new mongoose.Schema({
+const FundraiserSchema = new mongoose.Schema({
     title: String,
     institute: String,
     summary: String,
@@ -28,4 +29,6 @@ const FundRaiserSchema = new mongoose.Schema({
     }]
 });
 
-module.exports = mongoose.model("FundRaiser", FundRaiserSchema);
+FundraiserSchema.plugin(mongoosePaginate);
+
+module.exports = mongoose.model("FundRaiser", FundraiserSchema);

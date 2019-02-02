@@ -1,0 +1,37 @@
+<% include ../partials/header %>
+
+<div class="container mt-3 text-dark">
+    <div class="row">
+        <div class="col-md-1 col-lg-2 col-xl-3"></div>
+        <div class="col-md-10 col-lg-8 col-xl-6">
+            <form action="/investor/register" method="POST">
+                <div class="heading-2 text-center mt-3">INVESTOR REGISTER</div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="text" class="form-control" id="image" placeholder="Enter image url" name="image" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" id="description" placeholder="Enter your description" name="description" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
+                </div>
+                <a href="/investor/login" class="btn btn-outline-danger mr-2 pl-4 pr-4 ">Login</a>
+                <button type="submit" class="btn btn-outline-dark pl-4 pr-4">Register</button>
+            </form>
+        </div>
+        <div class="col-md-1 col-lg-2 col-xl-3"></div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

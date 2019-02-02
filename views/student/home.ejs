@@ -1,25 +1,30 @@
 <% include ../partials/header %>
 
 <div class="jumbotron text-center">
-    <h1 class="display-4">Start A New Fundraiser</h1>
+    <h1 class="display-4">START NEW FUNDRAISER</h1>
     <hr class="my-4">
     <p class="lead">You can create a new Fundraiser by clicking the button below</p>
     <a class="btn btn-outline-success btn-lg" href="/fundraiser/new" role="button">Create New Fundraiser</a>
 </div>
+
 <div class="container">
-    <div class="row">
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-    </div>
-    <div class="row">
+    <button id="prevFundraisers">Prev</button>
+    <div class="row mb-4" id="paginateFundraisers">
         
     </div>
+    <button id="nextFundraisers">Next</button>
+    
+    <button id="prevInvestors">Prev</button>
+    <div class="row" id="paginateInvestors">
+        
+    </div>
+    <button id="nextInvestors">Next</button>
 </div>
 
-<% include ../partials/footer %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="/scripts/userHome.js"></script>
+
+</body>
+</html>

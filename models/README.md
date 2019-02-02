@@ -18,12 +18,11 @@
 | Field         | Type                  |
 | ------------- | --------------------- |
 |   username    |   String              |
-|   email_id    |   String              |
+|   email       |   String              |
 |   password    |   String              |
 |   institute   |   String              |
 |   funds       |   Array(Fund (ref))   |
 |   image       |   String              |
-|   description |   String              |
 |   created     |   Date.now            |
 
 
@@ -31,10 +30,9 @@
 | Field         | Type                  |
 | ------------- | --------------------- |
 |   username    |   String              |
-|   email_id    |   String              |
+|   email       |   String              |
 |   password    |   String              |
 |   image       |   String              |
-|   description |   String              |
 |   funds       |   Array(Fund (ref))   |
 |   created     |   Date.now            |
 

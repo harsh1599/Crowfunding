@@ -1,19 +1,24 @@
 const mongoose = require("mongoose");
+const mongoosePaginate = require("mongoose-paginate");
+
 //investor Schema
-const investorSchema = new mongoose.Schema({
-    username : String,
-    email_id : String,
-    password : String,
-    image    : String,
+const InvestorSchema = new mongoose.Schema({
+    username: String,
+    email: String,
+    password: String,
+    image: String,
     description: String,
-    funds    : [{
+    funds: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref : "FundRaiser"
+        ref : "Fundraiser"
     }],
-    created  :{
+    usertype: { type: String, default: "INVESTOR" },
+    created: {
         type: Date, 
         default:Date.now
     }
 });
 
-module.exports = mongoose.model("Investor", investorSchema);
+InvestorSchema.plugin(mongoosePaginate);
+
+module.exports = mongoose.model("Investor", InvestorSchema);

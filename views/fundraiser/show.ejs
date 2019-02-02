@@ -1,0 +1,47 @@
+<% include ../partials/header %>
+
+<div class="container mt-3 mb-3">
+    <div class="row">
+
+        <div class="col-md-3 mb-4">
+            <div class="lead mb-3">YelpCamp</div>
+            <div class="list-group">
+                <div class="list-group-item active"><%= fund.institution%></div>
+                <div class="list-group-item">Info 2</div>
+                <div class="list-group-item">Info 3</div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card mb-4">
+                <%fund.images.forEach(image=>{%>
+                    <img class="card-img-top" src="<%=image%>">
+                <%});%>
+                <div class="card-body">
+                    <div class="card-title">
+                        <a href="#" class="heading-3 a-hover"><%=fund.title %></a>
+                    </div>
+                    <p class="card-text" style="text-align: justify"><%= fund.summary %></p>
+                    <span class="text-danger"><%=fund.likes %> likes</span>
+                    <span class="float-right text-danger"><%= fund.reviews.length %> Reviews</span>
+                </div>
+            </div>
+            
+            <div class="jumbotron">
+                <a href="/reviews/<%=fund._id%>/new" class="btn btn-outline-success float-right btn-sm">Leave a Review </a>
+
+                <div class="mt-lg">
+                    <% fund.reviews.forEach(review => { %>
+                        <div>
+                            <span>stars </span>
+                            <strong><%= review.username %></strong>
+                        </div>
+                        <p class="card-text"><%= review.text %></p>
+                        <hr>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

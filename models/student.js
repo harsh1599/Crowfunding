@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const StudentSchema = new mongoose.Schema({
     username: String,
-    email_id: String,
+    email: String,
     password: String,
     institute: String,
     image: String,
@@ -11,6 +11,7 @@ const StudentSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "FundRaiser"
     }],
+    usertype: { type: String, default: "STUDENT" },
     created: { type: Date, default: Date.now }
 });
 
