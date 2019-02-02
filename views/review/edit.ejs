@@ -1,10 +1,14 @@
 <% include ../partials/header %>
 
+
+
 <div class="container mt-3 text-dark">
+   
     <div class="row">
         <div class="col-md-1 col-lg-2 col-xl-3"></div>
         <div class="col-md-10 col-lg-8 col-xl-6">
-            <form action="/fundraiser/<%= fundId %>" method="POST">
+             <p>Edit your review</p>
+            <form action="/fundraiser/<%= fundId %>/<%= reviewId %>/?_method=PUT" method="POST">
                 <div class="form-group">
                     <textarea class="form-control" id="review" placeholder="Enter your review" name="review" ></textarea> 
                 </div>

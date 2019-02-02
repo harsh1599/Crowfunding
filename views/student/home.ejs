@@ -3,22 +3,40 @@
 <div class="jumbotron text-center">
     <h1 class="display-4">START NEW FUNDRAISER</h1>
     <hr class="my-4">
-    <p class="lead">You can create a new Fundraiser by clicking the button below</p>
-    <a class="btn btn-outline-success btn-lg" href="/fundraiser/new" role="button">Create New Fundraiser</a>
+    <p class="lead">Where Students meet Investors</p>
+    <a class="btn btn-outline-success btn-lg" href="/fundraiser/new" role="button">NEW FUNDRAISER</a>
 </div>
 
-<div class="container">
-    <button id="prevFundraisers">Prev</button>
-    <div class="row mb-4" id="paginateFundraisers">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-1 text-center" style="margin: auto;">
+            <i class="fas fa-chevron-circle-left" id="prevFundraisers"></i>
+        </div>
+        <div class="col-xl-10">
+            <div class="row mb-4" id="paginateFundraisers">
         
+            </div>
+        </div>
+        <div class="col-xl-1 text-center" style="margin: auto;">
+            <i class="fas fa-chevron-circle-right" id="nextFundraisers"></i>
+        </div>
     </div>
-    <button id="nextFundraisers">Next</button>
     
-    <button id="prevInvestors">Prev</button>
-    <div class="row" id="paginateInvestors">
+    <hr>
+    
+    <div class="row">
+        <div class="col-xl-1 text-center"  style="margin: auto;">
+            <i class="fas fa-chevron-circle-left" id="prevInvestors"></i>
+        </div>
+        <div class="col-xl-10">
+            <div class="row" id="paginateInvestors">
         
+            </div>
+        </div>
+        <div class="col-xl-1 text-center"  style="margin: auto;">
+            <i class="fas fa-chevron-circle-right" id="nextInvestors"></i>            
+        </div>
     </div>
-    <button id="nextInvestors">Next</button>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

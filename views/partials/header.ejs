@@ -5,23 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/app.css">
-    <title>Crowd Funding</title>
+    <link rel="stylesheet" href="/stylesheets/spinner.css">
+    <title>CrowdFunding</title>
 </head>
 <body>
-   
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/">Crowd Funding</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                       
-                    </ul>
-                </div>
-            </div>
-        </nav> 
-    
+ 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">CrowdFunding</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav  ml-auto">
+            <% if (user) { %>
+                <a class="nav-link active" href="<%= user.usertype === 'STUDENT' ? '/student/home' : '/investor/home' %>"><%= user.username %></a>
+                <a class="nav-link" href="<%= user.usertype === 'STUDENT' ? '/student/logout' : '/investor/logout' %>">Logout</a>
+            <% } else { %>
+                <a class="nav-link" href="/student/register">Student</a>
+                <a class="nav-link" href="/investor/register">Investor</a>
+            <% } %>
+        </ul>
+    </div>
+</nav>
+
+<div class="body-content">

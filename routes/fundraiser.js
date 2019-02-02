@@ -3,12 +3,12 @@ const Fundraiser = require("../models/fundraiser");
 const router = express.Router({ mergeParams: true });
 const middleware = require("../middleware");
 
-router.get("/new", (req, res) => {
-    res.render("fundraiser/new")
+router.get("/new", middleware.isStudentLoggedIn, (req, res) => {
+    res.render("fundraiser/new");
 });
 
 router.get("/:id",(req, res)=>{
-    Fundraiser.findById(req.params.id, (err, fund)=>{
+    Fundraiser.findById(req.params.id).populate("reviews").exec((err, fund)=>{
         if(err){
             res.send("Error " + err);
         } else {
@@ -26,11 +26,11 @@ router.post("/new", (req,res)=>{
         images: req.body.images.split(" ")
     }, (err, fund)=>{
         if(err){
-            console.log(err);0
+            console.log(err);
         } else {
             res.redirect("/fundraiser/"+fund._id);
         }
-    })
+    });
 });
 
 router.get("/:id/edit",middleware.isStudentLoggedIn, (req,res)=>{
@@ -48,6 +48,9 @@ router.put("/:id",middleware.isStudentLoggedIn, (req,res) => {
     })
 });
 
+
+
+
 router.delete("/:id",middleware.isStudentLoggedIn, (req,res) => {
     Fundraiser.findByIdAndRemove(req.params.id, (err)=>{
         if(err){
@@ -63,7 +66,7 @@ router.get("/pagination/:page", (req, res) => {
         .then(data => {
             return res.json(data.docs);
         })
-        .catch((err) => {return res.json(err);})
+        .catch((err) => {return res.json(err);});
 });
 
 module.exports = router;

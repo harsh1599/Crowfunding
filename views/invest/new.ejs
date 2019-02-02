@@ -4,9 +4,9 @@
     <div class="row">
         <div class="col-md-1 col-lg-2 col-xl-3"></div>
         <div class="col-md-10 col-lg-8 col-xl-6">
-            <form action="/fundraiser/<%= fundId %>" method="POST">
+            <form action="/invest/<%= fundId %>" method="POST">
                 <div class="form-group">
-                    <textarea class="form-control" id="review" placeholder="Enter your review" name="review" ></textarea> 
+                    <input type="number" step="0.01" class="form-control" id="investment" placeholder="Enter Amount To Invest" name="investment"></input> 
                 </div>
                 <button type="submit" class="btn btn-outline-dark pl-4 pr-4">Submit</button>
             </form>

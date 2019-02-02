@@ -1,13 +1,99 @@
-<% include ./partials/header.ejs %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CrowdFunding</title>
+    <link rel="stylesheet" href="/stylesheets/landing.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/scripts/landing.js"></script>
+</head>
 
 <body>
-     <div class="landing">
+    <!-- navbar -->
+    <nav>
+        <div class="nav-head">CrowdFunding</div>
+        <ul class="nav-items">
+            <% if (user) { %>
+            <a href="<%= user.usertype === 'STUDENT' ? '/student/home' : '/investor/home' %>"><%= user.username %></a>
+            <a href="<%= user.usertype === 'STUDENT' ? '/student/logout' : '/investor/logout' %>">Logout</a>
+            <% } else { %>
+            <a href="/student/register">Student</a>
+            <a href="/investor/register">Investor</a>
+            <% } %>
+        </ul>
+    </nav>
+
+    <!-- landing -->
+    <div class="landing">
         <div class="centered">
-            <a class="btn btn-large btn-primary" class="head" href="/student/login">Login as Student</a>
-            <hr>
-            <a class="btn btn-large btn-primary" class="head" href="/investor/login">Login as Investor</a>
+            <div class="head">STUDENT CROWD FUNDING</div>
+            <p class="desc">Where Students meet Investors</p>
         </div>
     </div>
-</body>
 
-<% include ./partials/footer.ejs %>
+    <!-- on scroll section -->
+    <pre>
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+        CONTENT
+    </pre>
+
+    <!-- footer -->
+</body>
+</html>

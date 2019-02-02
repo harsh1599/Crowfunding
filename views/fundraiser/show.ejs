@@ -1,21 +1,19 @@
 <% include ../partials/header %>
 
-<div class="container mt-3 mb-3">
-    <div class="row">
+<div class="container mt-5 mb-3">
+    <div class="row" style="margin-top: 75px;">
 
         <div class="col-md-3 mb-4">
-            <div class="lead mb-3">YelpCamp</div>
+            <div class="lead mb-3">CROWD FUNDING</div>
             <div class="list-group">
-                <div class="list-group-item active"><%= fund.institution%></div>
-                <div class="list-group-item">Info 2</div>
-                <div class="list-group-item">Info 3</div>
+                <a href="/invest/<%= fund._id %>" class="list-group-item btn btn-outline-primary">Invest</a>
             </div>
         </div>
         <div class="col-md-9">
             <div class="card mb-4">
                 <%fund.images.forEach(image=>{%>
                     <img class="card-img-top" src="<%=image%>">
-                <%});%>
+                <% });%>
                 <div class="card-body">
                     <div class="card-title">
                         <a href="#" class="heading-3 a-hover"><%=fund.title %></a>
@@ -27,15 +25,24 @@
             </div>
             
             <div class="jumbotron">
-                <a href="/reviews/<%=fund._id%>/new" class="btn btn-outline-success float-right btn-sm">Leave a Review </a>
-
+                <a href="/fundraiser/<%=fund._id %>/new_review" class="btn btn-outline-success float-right btn">Leave a Review </a>
                 <div class="mt-lg">
                     <% fund.reviews.forEach(review => { %>
-                        <div>
-                            <span>stars </span>
-                            <strong><%= review.username %></strong>
+                        <div class="review-container mt-5">
+                        
+                            <p class="text-review">
+                                <%= review.text %>
+                            </p>
+                            <p class="likes-review">
+                                Likes <strong><%= review.likes %></strong>
+                            </p>
                         </div>
-                        <p class="card-text"><%= review.text %></p>
+                        <% if(user &&  review.email===(user.email)){ %>
+                            <a class="btn pl-4 pr-4 btn-outline-secondary btn-sm" href="/fundraiser/<%=fund._id %>/<%=review._id%>/edit">Edit</a>
+                            <form id="delete" action="/fundraiser/<%=fund._id %>/<%=review._id%>/?_method=DELETE" method="POST">
+                                <button type="submit" class="btn pl-4 pr-4 btn-outline-danger btn-sm">Delete</button>
+                            </form>
+                        <% } %>
                         <hr>
                     <% }); %>
                 </div>

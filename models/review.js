@@ -1,26 +1,7 @@
 const mongoose = require("mongoose");
 const reviewSchema = new mongoose.Schema({
-    text:String,
-    likes:Number,
-    author_i:[
-        {
-            type:mongoose.Schema.Types.ObjectId,
-            ref:"Investor"
-        }
-    ],
-    author_s:[
-        {
-            type:mongoose.Schema.Types.ObjectId,
-            ref:"Student"
-        }
-    ],
-    created:{
-        type:Date,
-        default:Date.now
-    },
-    fund:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"FundRaiser"
-    }
-})
-module.exports = mongoose.model("Reviews", reviewSchema);
+    text: String,
+    likes:{type:Number,default:0},
+    email:String
+});
+module.exports = mongoose.model("Review", reviewSchema);

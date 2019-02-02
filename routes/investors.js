@@ -53,8 +53,8 @@ router.post('/login', (req, res, next) => {
 });
 
 router.get('/logout', (req, res) => {
-  req.logout();
-  res.redirect('/investor/login');
+    req.logout();
+    res.redirect('/');
 });
 
 // TODO

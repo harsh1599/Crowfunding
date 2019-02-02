@@ -53,8 +53,8 @@ router.post('/login', (req, res, next) => {
 });
 
 router.get('/logout', (req, res) => {
-  req.logout();
-  res.redirect('/student/login');
+    req.logout();
+    res.redirect('/');
 });
 
 // TODO
