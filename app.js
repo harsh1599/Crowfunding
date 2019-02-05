@@ -9,7 +9,7 @@ const methodOverride = require("method-override");
 require('./config/passport')(passport);
 
 // connecting to database
-mongoose.connect("mongodb://abc:abc123@ds119755.mlab.com:19755/fundraiser");
+mongoose.connect("mongodb://localhost:27017/fundraiser");
 
 // setting up the app
 const app = express();
@@ -21,7 +21,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }));
 
 // express session
-app.use(session({ secret: 'wobba_lobba_dub_dub', resave: true, saveUninitialized: true }));
+app.use(session({ secret: process.env.SECRET || 'secret', resave: true, saveUninitialized: true }));
 
 // passport middleware
 app.use(passport.initialize());
@@ -42,4 +42,4 @@ app.use("/fundraiser", require("./routes/fundraiser"));
 app.use("/fundraiser/:id/", require("./routes/review"));
 
 // starting the server
-app.listen(process.env.PORT, process.env.IP);
+app.listen(process.env.PORT || 3000, process.env.IP);

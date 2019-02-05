@@ -23,6 +23,7 @@ router.post("/new", (req,res)=>{
         institute: req.body.institute,
         summary: req.body.summary,
         goal: req.body.goal,
+        student: { id: req.user._id, name: req.user.username },
         images: req.body.images.split(" ")
     }, (err, fund)=>{
         if(err){

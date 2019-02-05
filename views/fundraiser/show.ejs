@@ -7,7 +7,10 @@
             <div class="lead mb-3">CROWD FUNDING</div>
             <div class="list-group">
                 <a href="/invest/<%= fund._id %>" class="list-group-item btn btn-outline-primary">Invest</a>
+                <p>Current: <%= fund.current%></p>
+                <p>Goal: <%= fund.goal%>                
             </div>
+            
         </div>
         <div class="col-md-9">
             <div class="card mb-4">
@@ -21,6 +24,7 @@
                     <p class="card-text" style="text-align: justify"><%= fund.summary %></p>
                     <span class="text-danger"><%=fund.likes %> likes</span>
                     <span class="float-right text-danger"><%= fund.reviews.length %> Reviews</span>
+                    <div>- <em><%= fund.student.name %></em></div>
                 </div>
             </div>
             

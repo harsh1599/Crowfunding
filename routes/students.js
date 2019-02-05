@@ -9,6 +9,7 @@ const router = express.Router({mergeParams: true});
 
 // importing models
 const Student = require("../models/student");
+const FundRaiser = require("../models/fundraiser");
 
 // routes
 router.get("/home", middleware.isStudentLoggedIn, (req, res) => {
@@ -55,6 +56,54 @@ router.post('/login', (req, res, next) => {
 router.get('/logout', (req, res) => {
     req.logout();
     res.redirect('/');
+});
+
+router.get("/like/:fund_id", (req, res) => {
+    FundRaiser.findById(req.params.fund_id, (err, fundraiser) => {
+        if (err) return res.json(err);
+        else {
+            fundraiser.likes += 1;
+            fundraiser.save(err => {
+                if (err) return res.json(err);
+                else {
+                    Student.findById(req.user._id, (err, student) => {
+                        if (err) return res.json(err);
+                        else {
+                            student.likedFunds.push(fundraiser._id);
+                            student.save(err => {
+                                if (err) return res.json(err);
+                                else return res.json({ done: true });
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    });
+});
+
+router.get("/dislike/:fund_id", (req, res) => {
+    FundRaiser.findById(req.params.fund_id, (err, fundraiser) => {
+        if (err) return res.json(err);
+        else {
+            fundraiser.likes -= 1;
+            fundraiser.save(err => {
+                if (err) return res.json(err);
+                else {
+                    Student.findById(req.user._id, (err, student) => {
+                        if (err) return res.json(err);
+                        else {
+                            student.splice(student.indexOf(fundraiser._id), 1);
+                            student.save(err => {
+                                if (err) return res.json(err);
+                                else return res.json({ done: true });
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    });
 });
 
 // TODO

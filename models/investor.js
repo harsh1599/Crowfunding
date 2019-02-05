@@ -12,6 +12,10 @@ const InvestorSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref : "Fundraiser"
     }],
+    likedFunds: Array({
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "FundRaiser" 
+    }),
     usertype: { type: String, default: "INVESTOR" },
     created: {
         type: Date, 
